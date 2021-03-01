@@ -7,5 +7,8 @@
 module bindbc.loader;
 
 public
-import bindbc.loader.sharedlib,
-       bindbc.loader.system;
+import bindbc.loader.system;
+
+version(WebAssembly) {} else {
+    public import bindbc.loader.sharedlib;// Bindings not implemented for WebAssembly
+}
